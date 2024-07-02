@@ -95,20 +95,20 @@
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jkelamin" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jkelamin2" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="txt_password1" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
-                                              <Component id="txt_password" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
-                                              <Component id="txt_username2" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
+                                              <Component id="pass2" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
+                                              <Component id="pass" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
+                                              <Component id="user" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="txt_username" min="-2" pref="227" max="-2" attributes="0"/>
+                                      <Component id="gmail" min="-2" pref="227" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -119,7 +119,7 @@
                                           <Group type="102" attributes="0">
                                               <Component id="Retype4" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="aagama" min="-2" pref="95" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="Retype2" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -129,7 +129,7 @@
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txt_username1" pref="227" max="32767" attributes="0"/>
+                                          <Component id="telp" pref="227" max="32767" attributes="0"/>
                                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -140,11 +140,11 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
-                      <Component id="btn_logout2" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="tambah" min="-2" pref="102" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                      <Component id="btn_logout1" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="hapus" min="-2" pref="102" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                      <Component id="btn_logout3" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="ubah" min="-2" pref="102" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
@@ -160,24 +160,24 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_username1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="telp" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="Retype4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="aagama" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Component id="Retype" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="txt_username2" min="-2" max="-2" attributes="0"/>
+                              <Component id="user" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txt_password" min="-2" max="-2" attributes="0"/>
+                              <Component id="pass" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="37" pref="37" max="-2" attributes="0"/>
-                              <Component id="txt_password1" min="-2" max="-2" attributes="0"/>
+                              <Component id="pass2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -186,13 +186,13 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="Retype1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="Retype2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jkelamin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jkelamin2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="Retype3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_username" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="gmail" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -202,9 +202,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_logout2" alignment="3" pref="45" max="32767" attributes="0"/>
-                          <Component id="btn_logout1" alignment="3" pref="45" max="32767" attributes="0"/>
-                          <Component id="btn_logout3" alignment="3" pref="45" max="32767" attributes="0"/>
+                          <Component id="tambah" alignment="3" pref="45" max="32767" attributes="0"/>
+                          <Component id="hapus" alignment="3" pref="45" max="32767" attributes="0"/>
+                          <Component id="ubah" alignment="3" pref="45" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="251" max="-2" attributes="0"/>
@@ -264,9 +264,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="txt_username">
+            <Component class="javax.swing.JTextField" name="gmail">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_usernameActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gmailActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -285,11 +285,11 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="txt_password">
+            <Component class="javax.swing.JPasswordField" name="pass">
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_username1">
+            <Component class="javax.swing.JTextField" name="telp">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_username1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telpActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -308,9 +308,9 @@
                 <Property name="text" type="java.lang.String" value="Retype"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="txt_password1">
+            <Component class="javax.swing.JPasswordField" name="pass2">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_password1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pass2ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="Retype1">
@@ -345,29 +345,29 @@
                 <Property name="text" type="java.lang.String" value="Agama"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="jkelamin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Laki-Laki"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+            <Component class="javax.swing.JRadioButton" name="jkelamin2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Perempuan"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_username2">
+            <Component class="javax.swing.JTextField" name="user">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_username2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="aagama">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Islam&quot;, &quot;Kristen&quot;, &quot;Budha&quot;, &quot;Lainnya&quot; })" type="code"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aagamaActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -380,7 +380,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                <Component class="javax.swing.JTextArea" name="almanat">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
@@ -388,28 +388,28 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btn_logout1">
+            <Component class="javax.swing.JButton" name="hapus">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hapus"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_logout1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hapusActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_logout2">
+            <Component class="javax.swing.JButton" name="tambah">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tambah"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_logout2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tambahActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_logout3">
+            <Component class="javax.swing.JButton" name="ubah">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ubah"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_logout3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ubahActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -419,7 +419,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="table_pegawai">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="4">

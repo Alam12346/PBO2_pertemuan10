@@ -428,8 +428,6 @@ public class fbarang extends javax.swing.JFrame {
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
         // TODO add your handling code here:
-
-        // TODO add your handling code here:
         System.out.println(txt_kdbarang.getText());
         System.out.println(nama_barang.getText());
         System.out.println(jumlah_barang.getText());
