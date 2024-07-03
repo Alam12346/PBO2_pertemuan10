@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -19,18 +20,20 @@ import javax.swing.table.DefaultTableModel;
  */
 public class fpegawai extends javax.swing.JFrame {
 
+    
+    private DefaultTableModel model;
+    private ButtonGroup genderGroup;
+
     /**
      * Creates new form fpegawai
      */
-   
-
-    private DefaultTableModel model;
-   
-
+ 
+    
     public fpegawai() {
         initComponents();
         model = new DefaultTableModel();
-        table_pegawai.setModel(model);
+        table.setModel(model);
+
         model.addColumn("username");
         model.addColumn("password");
         model.addColumn("jenis_kelamin");
@@ -38,13 +41,19 @@ public class fpegawai extends javax.swing.JFrame {
         model.addColumn("no_telp");
         model.addColumn("agama");
         model.addColumn("alamat");
+
+        genderGroup = new ButtonGroup(); // Inisialisasi ButtonGroup
+        genderGroup.add(jkelamin);      // Tambahkan Radiolaki ke ButtonGroup
+        genderGroup.add(jkelamin2); // Tambahkan Radioperempuan ke ButtonGroup
+
         loadData();
-        
+
     }
-      public final void loadData() {
+
+    public final void loadData() {
         tambah.setEnabled(true);
-        hapus.setEnabled(true);
-        ubah.setEnabled(true);
+        ubah.setEnabled(false);
+        hapus.setEnabled(false);
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
 
@@ -53,6 +62,7 @@ public class fpegawai extends javax.swing.JFrame {
             Statement s = c.createStatement();
             String sql = "SELECT * FROM tbl_login";
             ResultSet r = s.executeQuery(sql);
+
             while (r.next()) {
                 Object[] o = new Object[7];
                 o[0] = r.getString("username");
@@ -64,27 +74,13 @@ public class fpegawai extends javax.swing.JFrame {
                 o[6] = r.getString("alamat");
                 model.addRow(o);
             }
+
             r.close();
             s.close();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            System.out.println("Terjadi kesalahan saat load data !");
-            JOptionPane.showMessageDialog(null, "terjadi kesalahan");
+            e.printStackTrace();
         }
     }
-//      
-    private void clearForm() {
-        user.setText("");
-        pass.setText("");
-        jkelamin.setText("");
-        jkelamin2.setText("");
-        gmail.setText("");
-        telp.setText("");
-        aagama.setSelectedItem("");
-        almanat.setText("");
-    }
-      
- 
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -122,13 +118,13 @@ public class fpegawai extends javax.swing.JFrame {
         tambah = new javax.swing.JButton();
         ubah = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        table_pegawai = new javax.swing.JTable();
+        table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 255));
 
-        jPanel3.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel4.setBackground(new java.awt.Color(102, 204, 255));
 
@@ -247,7 +243,7 @@ public class fpegawai extends javax.swing.JFrame {
             }
         });
 
-        table_pegawai.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -258,7 +254,12 @@ public class fpegawai extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(table_pegawai);
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(table);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -266,56 +267,53 @@ public class fpegawai extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(Retype3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addComponent(Retype)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jLabel5))
-                                            .addGap(71, 71, 71)))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(Retype1)
-                                        .addGap(42, 42, 42)))
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jkelamin)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jkelamin2))
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(gmail, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)))
+                        .addGap(61, 61, 61)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(71, 71, 71)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(Retype4)
-                                        .addGap(64, 64, 64)
-                                        .addComponent(aagama, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Retype2)))
+                                .addGap(73, 73, 73)
+                                .addComponent(Retype))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel6)
-                                .addGap(54, 54, 54)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(telp, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1))))))
+                                .addGap(50, 50, 50)
+                                .addComponent(Retype1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jkelamin)
+                                .addGap(18, 18, 18)
+                                .addComponent(jkelamin2))
+                            .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(Retype3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gmail, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(Retype4)
+                                .addGap(64, 64, 64)
+                                .addComponent(aagama, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Retype2)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel6)
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(telp, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))))
                 .addContainerGap(115, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(186, 186, 186)
@@ -339,34 +337,39 @@ public class fpegawai extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(telp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Retype4)
                             .addComponent(aagama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addComponent(Retype))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(Retype2))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Retype))
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Retype1)
-                            .addComponent(Retype2)
                             .addComponent(jkelamin)
                             .addComponent(jkelamin2))
                         .addGap(23, 23, 23)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Retype3)
-                            .addComponent(gmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(gmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(47, 47, 47)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tambah, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
@@ -411,6 +414,9 @@ public class fpegawai extends javax.swing.JFrame {
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
         // TODO add your handling code here:
+          fmenu fb = new fmenu();
+        fb.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_logoutActionPerformed
 
     private void pass2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass2ActionPerformed
@@ -427,87 +433,216 @@ public class fpegawai extends javax.swing.JFrame {
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
           // TODO add your handling code here:
-        try {
-             Connection conn = koneksi.getKoneksi();
-            String sql = "delete from tbl_login where id_login=?";
+       try {
+            String sql = "delete from tbl_login where username='" + user.getText() + "'";
+            java.sql.Connection conn = (Connection) koneksi.getKoneksi();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
-             pst.setInt(1, Integer.parseInt(table_pegawai.getValueAt(table_pegawai.getSelectedRow(), 0).toString()));
-            pst.executeUpdate();
+            pst.execute();
             JOptionPane.showMessageDialog(this, "berhasil di hapus");
-            loadData();
-            clearForm();
-        } 
-//        catch (Exception e) {
-//            System.out.println(e.getMessage());
-//            System.out.println(e);
-//            JOptionPane.showMessageDialog(null, "terjadi kesalahan");
-//        }
-catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error deleting data: " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
-              
+        loadData();
+        user.setText("");
+        gmail.setText("");
+        pass.setText("");
+        pass2.setText("");    
+        genderGroup.clearSelection();
+        telp.setText("");
+        aagama.setSelectedIndex(0);
+        almanat.setText("");
+
     }//GEN-LAST:event_hapusActionPerformed
 
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
          // TODO add your handling code here:
-     
-        
+         
+            if (user.getText().equals("")
+                || new String(pass.getPassword()).equals("")
+                || new String(pass2.getPassword()).equals("")
+                || (!jkelamin.isSelected() && !jkelamin2.isSelected())
+                || gmail.getText().equals("")
+                || telp.getText().equals("")
+                || aagama.getSelectedItem().equals("")
+                || almanat.getText().equals("")) {
 
-        if (user.getText().equals("") || new String(pass.getPassword()).equals("") || new String(pass2.getPassword()).equals("") ||
-                (! jkelamin.isSelected() && jkelamin2.isSelected() ) || gmail.getText().equals("")  || telp.getText().equals("") || aagama.getSelectedItem().equals("") || almanat.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "LENGKAPI DATA !", "Buat akun", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "LENGKAPI DATA!", "Pegawai", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            String username = user.getText();
-            String password = pass.getText();
-            String jenis_kelamin = jkelamin.getText();
-            String email = gmail.getText();
-            String no_telp = telp.getText();
-            String agama = (String) aagama.getSelectedItem();
-            String alamat = almanat.getText();
-
             try {
-                long millis = System.currentTimeMillis();
-                java.sql.Date date = new java.sql.Date(millis);
-                System.out.println(date);
-                String tanggal_masuk = date.toString();
+                String kusername = user.getText();
+                String useremail = gmail.getText();
+                String tpassword = new String(pass.getPassword());
+                String confirmpassword = new String(pass2.getPassword());
+                if (!tpassword.equals(confirmpassword)) {
+                    JOptionPane.showMessageDialog(null, "PASSWORD TIDAK COCOK!", "Pegawai", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                String jenisKelamin;
+                if (jkelamin.isSelected()) {
+                    jenisKelamin = "Laki-laki";
+                } else {
+                    jenisKelamin = "Perempuan";
+                }
+                int noTelp = Integer.parseInt(telp.getText());
+                String agama = aagama.getSelectedItem().toString();
+                String alamat = almanat.getText();
+
                 Connection c = koneksi.getKoneksi();
                 String sql = "INSERT INTO tbl_login (username, password, jenis_kelamin, email, no_telp, agama, alamat) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement p = c.prepareStatement(sql);
-                p.setString(1, username);
-                p.setString(2, password);
-                p.setString(3, jenis_kelamin);
-                p.setString(4, email);
-                p.setString(5, no_telp);
-                 p.setString(6, agama);
-                 p.setString(7, alamat);
-               
+                p.setString(1, kusername);
+                p.setString(2, tpassword);
+                p.setString(3, jenisKelamin);
+                p.setString(4, useremail);
+                p.setInt(5, noTelp);
+                p.setString(6, agama);
+                p.setString(7, alamat);
                 p.executeUpdate();
                 p.close();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-                System.out.println("Terjadi kesalahan pada method tambah !");
-                JOptionPane.showMessageDialog(null, "terjadi kesalahan");
-            } finally {
                 loadData();
-              
+
                 user.setText("");
-                pass.setText("");
-                jkelamin.setText("");
-                jkelamin2.setText("");
                 gmail.setText("");
+                pass.setText("");
+                pass2.setText("");
+                genderGroup.clearSelection();
                 telp.setText("");
-                aagama.setSelectedItem("");
+                aagama.setSelectedIndex(0);
                 almanat.setText("");
-                JOptionPane.showMessageDialog(null, "Data berhasil tersimpan", "elekronik berkah", JOptionPane.INFORMATION_MESSAGE);
+
+                JOptionPane.showMessageDialog(null, "Data pegawai berhasil di tambahkan", "Aplikasi Penjualan",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+            } catch (Exception e) {
+                System.out.println("terjadi error");
             }
+
         }
-        
-        
+    
     }//GEN-LAST:event_tambahActionPerformed
 
     private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
         // TODO add your handling code here:
+        if (user.getText().equals("")
+                || new String(pass.getPassword()).equals("")
+                || new String(pass2.getPassword()).equals("")
+                || (!jkelamin.isSelected() && !jkelamin2.isSelected())
+                || gmail.getText().equals("")
+                || telp.getText().equals("")
+                || aagama.getSelectedItem().equals("")
+                || almanat.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "LENGKAPI DATA!", "Pegawai", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            int i = table.getSelectedRow();
+            if (i == -1) {
+                JOptionPane.showMessageDialog(null, "PILIH DATA YANG AKAN DIUBAH!", "Pegawai", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+
+            String kusername = user.getText();
+            String useremail = gmail.getText();
+            String tpassword = new String(pass.getPassword());
+            String confirmpassword = new String(pass2.getPassword());
+            if (!tpassword.equals(confirmpassword)) {
+                JOptionPane.showMessageDialog(null, "PASSWORD TIDAK COCOK!", "Pegawai", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String jenisKelamin;
+            if (jkelamin.isSelected()) {
+                jenisKelamin = "Laki-laki";
+            } else {
+                jenisKelamin = "Perempuan";
+            }
+
+            int noTelp;
+            try {
+                noTelp = Integer.parseInt(telp.getText());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Nomor Telepon harus berupa angka!", "Pegawai", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String agama = aagama.getSelectedItem().toString();
+            String alamat = almanat.getText();
+
+            try {
+                Connection c = koneksi.getKoneksi();
+                String sql = "UPDATE tbl_login SET password = ?, jenis_kelamin = ?, email = ?, no_telp = ?, agama = ?, alamat = ? WHERE username = ?";
+                PreparedStatement p = c.prepareStatement(sql);
+                p.setString(1, tpassword);
+                p.setString(2, jenisKelamin);
+                p.setString(3, useremail);
+                p.setInt(4, noTelp);
+                p.setString(5, agama);
+                p.setString(6, alamat);
+                p.setString(7, kusername);
+
+                // Print the prepared statement for debugging
+                System.out.println("Executing query: " + p.toString());
+
+                int rowsUpdated = p.executeUpdate();
+                System.out.println("Rows updated: " + rowsUpdated);
+
+                p.close();
+                loadData();
+
+                user.setText("");
+                gmail.setText("");
+                pass.setText("");
+                pass.setText("");
+                genderGroup.clearSelection();
+                telp.setText("");
+                aagama.setSelectedIndex(0);
+                almanat.setText("");
+
+                JOptionPane.showMessageDialog(null, "Data berhasil diubah", "Pegawai", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Gagal mengubah data! " + e.getMessage(), "Pegawai", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Terjadi kesalahan: " + e.getMessage(), "Pegawai", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+     
     }//GEN-LAST:event_ubahActionPerformed
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        // TODO add your handling code here:
+        tambah.setEnabled(false);
+        ubah.setEnabled(true);
+        hapus.setEnabled(true);
+        int i = table.getSelectedRow();
+        if (i == -1) {
+            return;
+        }
+       
+        String username = (String) table.getValueAt(i, 0);
+        String password = (String) table.getValueAt(i, 1);
+        String jenisKelamin = (String) table.getValueAt(i, 2);
+        String email = (String) table.getValueAt(i, 3);
+        String noTelp = (String) table.getValueAt(i, 4);
+        String agama = (String) table.getValueAt(i, 5);
+        String alamat = (String) table.getValueAt(i, 6);
+
+       
+        user.setText(username);
+        user.setEnabled(false);
+        pass.setText(password);
+        pass2.setText(password);
+        if (jenisKelamin.equals("Laki-laki")) {
+            jkelamin.setSelected(true);
+        } else {
+            jkelamin2.setSelected(true);
+        }
+        gmail.setText(email);
+        telp.setText(noTelp);
+        aagama.setSelectedItem(agama);
+        almanat.setText(alamat);
+    }//GEN-LAST:event_tableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -568,7 +703,7 @@ catch (SQLException e) {
     private javax.swing.JRadioButton jkelamin2;
     private javax.swing.JPasswordField pass;
     private javax.swing.JPasswordField pass2;
-    private javax.swing.JTable table_pegawai;
+    private javax.swing.JTable table;
     private javax.swing.JButton tambah;
     private javax.swing.JTextField telp;
     private javax.swing.JButton ubah;

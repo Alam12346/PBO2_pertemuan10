@@ -117,7 +117,6 @@ public class fbarang extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
-        txt_cari = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         nama_barang = new javax.swing.JTextField();
@@ -133,19 +132,18 @@ public class fbarang extends javax.swing.JFrame {
         jumlah_barang = new javax.swing.JTextField();
         harga_beli = new javax.swing.JTextField();
         harga_jual = new javax.swing.JTextField();
-        Retype5 = new javax.swing.JLabel();
         btn_edit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 255));
 
-        jPanel3.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel4.setBackground(new java.awt.Color(102, 204, 255));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        jLabel3.setText("Pengolahan data pegawai");
+        jLabel3.setText("Tambah Barang");
 
         exit.setText("Back");
         exit.addActionListener(new java.awt.event.ActionListener() {
@@ -174,17 +172,6 @@ public class fbarang extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        txt_cari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_cariActionPerformed(evt);
-            }
-        });
-        txt_cari.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_cariKeyReleased(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Kode Barang");
@@ -265,9 +252,6 @@ public class fbarang extends javax.swing.JFrame {
             }
         });
 
-        Retype5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Retype5.setText("Cari");
-
         btn_edit.setText("Edit");
         btn_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,13 +284,8 @@ public class fbarang extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Retype2)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(Retype5)
-                                .addGap(47, 47, 47)
-                                .addComponent(txt_cari, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Retype2)
+                        .addContainerGap(463, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                         .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,10 +338,7 @@ public class fbarang extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addComponent(Retype1)))
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Retype3)
-                            .addComponent(Retype5)
-                            .addComponent(txt_cari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(Retype3)))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -486,10 +462,6 @@ public class fbarang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nama_barangActionPerformed
 
-    private void txt_cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cariActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_cariActionPerformed
-
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         // TODO add your handling code here:
         fmenu fb = new fmenu();
@@ -540,37 +512,6 @@ public class fbarang extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btn_editActionPerformed
-
-    private void txt_cariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cariKeyReleased
-        // TODO add your handling code here:
-        model.getDataVector().removeAllElements();
-        model.fireTableDataChanged();
-        try {
-            Connection c = koneksi.getKoneksi();
-
-            Statement s = c.createStatement();
-            String sql = "SELECT * FROM tbl_barang WHERE kd_barang LIKE '%" + txt_cari.getText() + "%' "
-                    + "OR nama_barang LIKE '%" + txt_cari.getText() + "%' "
-                    + "OR jumlah_barang LIKE '%" + txt_cari.getText() + "%' "
-                    + "OR harga_beli LIKE '%" + txt_cari.getText() + "%' "
-                    + "OR harga_jual LIKE '%" + txt_cari.getText() + "%'";
-            ResultSet r = s.executeQuery(sql);
-            while (r.next()) {
-                Object[] o = new Object[5];
-                o[0] = r.getString("kode_barang");
-                o[1] = r.getString("nama_barang");
-                o[2] = r.getString("jumlah_barang");
-                o[3] = r.getString("harga_beli");
-                o[4] = r.getString("harga_jual");
-                model.addRow(o);
-            }
-            r.close();
-            s.close();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            System.out.println("Terjadi Error");
-        }
-    }//GEN-LAST:event_txt_cariKeyReleased
 
     private void table_barangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_barangMouseClicked
         // TODO add your handling code here:
@@ -649,7 +590,6 @@ public static void main(String args[]) {
     private javax.swing.JLabel Retype1;
     private javax.swing.JLabel Retype2;
     private javax.swing.JLabel Retype3;
-    private javax.swing.JLabel Retype5;
     private javax.swing.JButton btn_edit;
     private javax.swing.JButton btn_hapus;
     private javax.swing.JButton btn_simpan;
@@ -666,7 +606,6 @@ public static void main(String args[]) {
     private javax.swing.JTextField jumlah_barang;
     private javax.swing.JTextField nama_barang;
     private javax.swing.JTable table_barang;
-    private javax.swing.JTextField txt_cari;
     private javax.swing.JTextField txt_kdbarang;
     // End of variables declaration//GEN-END:variables
 }

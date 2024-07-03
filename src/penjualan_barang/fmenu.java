@@ -86,7 +86,12 @@ public class fmenu extends javax.swing.JFrame {
         laporan.add(flaporanstokbarang);
 
         flaporanpenjualan.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
-        flaporanpenjualan.setText("Laporan Penjualan");
+        flaporanpenjualan.setText("laporan hitung jual");
+        flaporanpenjualan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flaporanpenjualanActionPerformed(evt);
+            }
+        });
         laporan.add(flaporanpenjualan);
 
         jMenuBar1.add(laporan);
@@ -109,23 +114,39 @@ public class fmenu extends javax.swing.JFrame {
 
     private void fbarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fbarangActionPerformed
         // TODO add your handling code here:
-          fbarang fb = new fbarang();
-fb.setVisible(true);
-this.setVisible(false);
-      
+        fbarang fb = new fbarang();
+        fb.setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_fbarangActionPerformed
 
     private void fpenjualanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fpenjualanActionPerformed
         // TODO add your handling code here:
+        fpenjualan ffp = new fpenjualan();
+        ffp.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_fpenjualanActionPerformed
 
     private void flaporanstokbarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flaporanstokbarangActionPerformed
         // TODO add your handling code here:
+        flaporanhitung fls = new flaporanhitung();
+        fls.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_flaporanstokbarangActionPerformed
 
     private void fpegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fpegawaiActionPerformed
         // TODO add your handling code here:
+        fpegawai fp = new fpegawai();
+        fp.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_fpegawaiActionPerformed
+
+    private void flaporanpenjualanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flaporanpenjualanActionPerformed
+        // TODO add your handling code here:
+         flaporanbarang flb = new flaporanbarang();
+        flb.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_flaporanpenjualanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,5 +195,4 @@ this.setVisible(false);
     private javax.swing.JMenu transaksi;
     // End of variables declaration//GEN-END:variables
 
-   
 }
