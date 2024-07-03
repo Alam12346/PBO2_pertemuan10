@@ -4,10 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/penjualan_barang/src/penjualan_barang/fpenjualan.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/penjualan_barang/src/penjualan_barang/flaporanbarang.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/penjualan_barang/src/penjualan_barang/fpegawai.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/penjualan_barang/src/penjualan_barang/fbarang.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/penjualan_barang/src/penjualan_barang/fmenu.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/penjualan_barang/src/penjualan_barang/flogin.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/penjualan_barang/src/penjualan_barang/koneksi.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/penjualan_barang/src/penjualan_barang/flaporanhitung.java</file>
         </group>
     </open-files>
 </project-private>
